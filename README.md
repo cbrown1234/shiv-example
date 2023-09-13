@@ -1,7 +1,4 @@
-# Shiv Example 2
-
-[![PyPI - Version](https://img.shields.io/pypi/v/shiv-example.svg)](https://pypi.org/project/shiv-example)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/shiv-example.svg)](https://pypi.org/project/shiv-example)
+# Shiv Example
 
 -----
 
@@ -10,10 +7,46 @@
 - [Installation](#installation)
 - [License](#license)
 
-## Installation
+## Setup
 
-```console
-pip install shiv-example
+- Initialise the project with `hatch`:
+
+```shell
+pip install --upgrade pip pip-tools hatch
+hatch new "Shiv Example"
+cd shiv-example
+```
+
+- Add core requirements to the `pyproject.toml` in the `dependencies` list
+- Add dev dependencies to the `pyproject.toml` in the `dev` list within the 
+`[project.optional-dependencies]` section
+- Install the project dependencies:
+
+```shell
+pip-compile -o requirements.txt pyproject.toml
+pip-compile --extra=dev -o requirements-dev.txt pyproject.toml
+pip install -r requirements.txt # if you only need to run the app
+pip install -r requirements.txt -r requirements-dev.txt # if you need to build the app
+```
+
+- Write the app in the src directory
+- Add the console script to the `pyproject.toml` file
+
+```toml
+[project.scripts]
+shiv-example-app = "shiv_example.main:main"
+```
+
+- Build the application with `shiv` 
+
+```shell
+shiv -c shiv-example-app -o shiv-example-app .
+```
+
+- Run the app like so:
+
+```shell
+./shiv-example-app
 ```
 
 ## License
