@@ -1,5 +1,7 @@
 # Shiv Example
 
+An example application built with shiv and hatch
+
 -----
 
 **Table of Contents**

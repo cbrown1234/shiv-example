@@ -5,7 +5,7 @@ build-backend = "hatchling.build"
 [project]
 name = "shiv-example"
 dynamic = ["version"]
-description = 'A example application built with shiv and hatch'
+description = 'An example application built with shiv and hatch'
 readme = "README.md"
 requires-python = ">=3.7"
 license = "MIT"
